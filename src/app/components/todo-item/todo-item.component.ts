@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {TodoService} from '../../services/todo.service';
 import {Todo} from '../../models/Todo';
 
 @Component({
@@ -10,7 +11,7 @@ export class TodoItemComponent implements OnInit {
 
   @Input() todo: Todo;
 
-  constructor() {
+  constructor(private todoService: TodoService) {
   }
 
   ngOnInit(): void {
@@ -21,12 +22,14 @@ export class TodoItemComponent implements OnInit {
       todo: true,
       'is-complete': this.todo.completed,
     };
-
   }
 
   onToggle(todo) {
     todo.completed = !todo.completed;
+    // tslint:disable-next-line:no-shadowed-variable
+    this.todoService.toggleCompleted(todo).subscribe(todo => console.log(todo));
   }
+
   onDelete(todo) {
     console.log(todo);
   }
