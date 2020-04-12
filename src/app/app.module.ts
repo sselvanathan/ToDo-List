@@ -5,12 +5,13 @@ import {FormsModule} from '@angular/forms';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {TodosComponent} from './components/todos/todos.component';
-import {TodoItemComponent} from './components/todo-item/todo-item.component';
+import {TodosComponent} from './components/pages/todo/todos/todos.component';
+import {TodoItemComponent} from './components/pages/todo/todo-item/todo-item.component';
 import {HeaderComponent} from './components/layout/header/header.component';
-import {AddTodoComponent} from './components/add-todo/add-todo.component';
+import {AddTodoComponent} from './components/pages/todo/add-todo/add-todo.component';
 import {AboutComponent} from './components/pages/about/about.component';
 import {FooterComponent} from './components/layout/footer/footer.component';
+import {TodoComponent} from './components/pages/todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {FooterComponent} from './components/layout/footer/footer.component';
     HeaderComponent,
     AddTodoComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
+    TodoComponent,
   ],
   imports: [
     BrowserModule,
