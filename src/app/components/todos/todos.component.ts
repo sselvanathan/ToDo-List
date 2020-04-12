@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Todo} from '../../models/Todo';
+import {TodoModel} from '../../models/todoModel';
 import {TodoService} from '../../services/todo.service';
 
 @Component({
@@ -8,7 +8,7 @@ import {TodoService} from '../../services/todo.service';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-  todos: Todo[];
+  todos: TodoModel[];
 
   constructor(private todoService: TodoService) {
   }
@@ -20,12 +20,12 @@ export class TodosComponent implements OnInit {
     );
   }
 
-  deleteTodo(todo: Todo) {
+  deleteTodo(todo: TodoModel) {
     this.todos = this.todos.filter(t => t.id !== todo.id);
     this.todoService.deleteTodo(todo).subscribe();
   }
 
-  addTodo(todo: Todo) {
+  addTodo(todo: TodoModel) {
     // tslint:disable-next-line:no-shadowed-variable
     this.todoService.addTodo(todo).subscribe(todo => {
       this.todos.push(todo);
