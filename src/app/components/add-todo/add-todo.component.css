@@ -1,12 +1,12 @@
-.form {
+.form label {
   display: flex;
 }
 
-.form input[type='text'] {
+.form label input[type='text'] {
   padding: 5px;
   flex: 10;
 }
 
-.form input[type='submit'] {
+.form label input[type='submit'] {
   flex: 2;
 }
